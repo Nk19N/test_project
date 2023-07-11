@@ -1,18 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-         
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>your-group-id</groupId>
-  <artifactId>your-artifact-id</artifactId>
-  <version>your-version</version>
+version: 2.1
 
-  <properties>
-    <sonar.organization>nk19n</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.projectKey>648891e9b6aac3b74a1bcf452b572bead144777c</sonar.projectKey>
-  </properties>
+jobs:
+  build:
+    docker:
+      - image: 'circleci/openjdk:11-jdk'
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar -Dsonar.projectKey=Nk19N_test_project
 
-  <!-- ... rest of the POM configuration ... -->
-
-</project>
+workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
