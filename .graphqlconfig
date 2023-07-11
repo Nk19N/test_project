@@ -1,0 +1,15 @@
+{
+  "name": "Albums GraphQL Schema",
+  "schemaPath": "./lib/data/schema.graphql",  
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://logsiru-dev.practechs.com/api-dev/graphql",  
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+query filterEmployee($filter: String!) {
+  filterEmployee(filter: $filter) {
+    statusCode
+    message
+    timestamp
+    payload {
+      user {
+        id
+        firstName
+        lastName
+        firstNameKana
+        lastNameKana
+        gender
+        dob
+        telephoneNumbers {
+          number
+          type
+          isPrimary
+        }
+        addressList {
+          id
+          postalCode
+          prefecture
+          address
+          isResidence
+          roomLocation {
+            building
+            roomNo
+          }
+        }
+        mailAddress
+        isOthersStressCheckResultsVisible
+        allowedOffices {
+          code
+          displayNameMap {
+            en
+            ja
+          }
+          status
+        }
+      }
+      currentOffice {
+        code
+        displayNameMap {
+          en
+          ja
+        }
+        status
+      }
+      currentDepartment {
+        code
+        displayNameMap {
+          en
+          ja
+        }
+        status
+      }
+      currentDivision {
+        code
+        displayNameMap {
+          en
+          ja
+        }
+        status
+      }
+      employmentForm
+      joinedDate
+      empNo
+      labourInsuranceNo {
+        symbol
+        insuranceNumber
+        insurerNumber
+        insurerName
+        companyName
+        fullName
+        insuredPersonName
+        dateOfExpiry
+        dateOfGrant
+        dateOfDelivery
+      }
+      designation {
+        code
+        displayNameMap {
+          en
+          ja
+        }
+      }
+      notices {
+        date
+        text
+      }
+      status
+      currentJudgement {
+        judgement
+        judgementRef
+        givenOn
+        givenBy
+      }
+    } 
+  }
+}

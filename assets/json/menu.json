@@ -1,0 +1,114 @@
+[
+    {
+      "routeName": "/personal_information",
+      "image": "assets/images/category/person.png",
+      "displayName": "Personal Information",
+      "category": "Consultation",
+      "arguments": null,
+      "onTap": "personal_info",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/vital-dashboard",
+      "image": "assets/images/category/heart-ecg.png",
+      "displayName": "VitalDashboard",
+      "category": "Consultation",
+      "arguments": {
+        "isEditing": false,
+        "vitalType": "vital"
+      },
+      "onTap": "vital_dashboard",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/consultation",
+      "image": "assets/images/category/heart-outline.png",
+      "displayName": "Consultation",
+      "category": "Consultation",
+      "arguments": null,
+      "onTap": "consultation",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/health_literacy",
+      "image": "assets/images/category/youtube_outlined_new.png",
+      "displayName": "Healthcare Literacy",
+      "category": "Physical",
+      "arguments" : null,
+      "onTap":"health_literacy",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/inspection_application",
+      "image": "assets/images/category/health-cross.png",
+      "displayName": "Inspection_Application",
+      "category": "Physical",
+      "arguments": null,
+      "onTap" : "inspection_application",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/physical_condition",
+      "image": "assets/images/physical_consultation/thermometer.png",
+      "displayName": "Physical Condition",
+      "category": "Physical",
+      "arguments": null,
+      "onTap" : "physical_condition",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "/coming_soon",
+      "image": "assets/images/category/cart-plus_new.png",
+      "displayName": "Self Medication",
+      "category": "Coming Soon",
+      "arguments": null,
+      "onTap" : "coming_soon",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "Testing One",
+      "image": "assets/images/category/test_con.png",
+      "displayName": "My Health Record",
+      "category": "Test",
+      "arguments": null,
+      "onTap" : "Tesing",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "Testing Two",
+      "image": "assets/images/category/test_con.png",
+      "displayName": "My Health Record",
+      "category": "Test",
+      "arguments": null,
+      "onTap" : "Tesing",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "Testing Three",
+      "image": "assets/images/category/test_con.png",
+      "displayName": "My Health Record",
+      "category": "Test",
+      "arguments": null,
+      "onTap" : "Tesing",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "Testing Four",
+      "image": "assets/images/category/test_con.png",
+      "displayName": "My Health Record",
+      "category": "Test",
+      "arguments": null,
+      "onTap" : "Tesing",
+      "shouldShowLoading": false
+    },
+    {
+      "routeName": "Testing Five",
+      "image": "assets/images/category/test_con.png",
+      "displayName": "My Health Record",
+      "category": "Test",
+      "arguments": null,
+      "onTap" : "Tesing",
+      "shouldShowLoading": false
+    }
+  ]
+  

@@ -1,0 +1,3339 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type AddAnnualPlanDTO {
+  isCreated: Boolean
+  refId: String!
+  reason: String
+  created: AnnualPlan
+}
+
+type AddAnnualPlansResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddAnnualPlanDTO]
+}
+
+type AddCheckupMasterDto {
+  code: String
+  externalTag: String
+  global: Boolean
+  allowedClientCodes: [String]
+  testItemCodes: [String]
+  selectedTestItemCodes: [String]
+  displayName: DisplayNameMap
+  description: Description
+  resultTemplate: ResultTemplate
+  id: String
+  createdDate: String
+  lastModifiedDate: String
+  createdBy: String
+  lastModifiedBy: String
+}
+
+type AddCheckupMasterResponse {
+  isCreated: Boolean!
+  refId: String!
+  reason: String
+  created: AddCheckupMasterDto
+}
+
+type AddClinicResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [RecordCreationResponse]
+}
+
+type AddCompanyDto {
+  isCreated: Boolean
+  refId: String!
+  reason: String
+  created: Company
+}
+
+type AddCompanyResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddCompanyDto]
+}
+
+type AddEmployeeDTO {
+  employeeList: [Employee]
+  errors: [AddRecordErrorDTO]
+  csvUploadHistoryRefId: String
+}
+
+type AddEmployeeResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: AddEmployeeDTO
+}
+
+type AddHealthCheckupDTO {
+  csvUploadHistoryRefId: String
+  errors: [AddRecordErrorDTO]
+}
+
+type AddHealthCheckupResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: AddHealthCheckupDTO
+}
+
+type AddInterviewDTO {
+  isCreated: Boolean!
+  refId: String!
+  reason: String
+  created: Interview
+}
+
+type AddInterviewResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddInterviewDTO]
+}
+
+type AddMeetingMinutesDto {
+  isCreated: Boolean
+  refId: String!
+  reason: String
+  created: MeetingMinutes
+}
+
+type AddMeetingMinutesRespose {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddMeetingMinutesDto]
+}
+
+type AddOverWorkDTO {
+  overWorkList: [OverWork]
+  errors: [AddRecordErrorDTO]
+  csvUploadHistoryRefId: String
+}
+
+type AddOverWorkResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: AddOverWorkDTO
+}
+
+type AddPermissionGroupDTO {
+  isCreated: Boolean
+  refId: String
+  reason: String
+  created: PermissionGroup
+}
+
+type AddPermissionGroupResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddPermissionGroupDTO]
+}
+
+type AddRecordErrorDTO {
+  recordNo: Int
+  errors: [RequestErrorDTO]
+}
+
+type AddReservationDTO {
+  isCreated: Boolean!
+  refId: String
+  reason: String
+  created: Reservation
+}
+
+type AddReservationResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddReservationDTO]
+}
+
+type Address {
+  id: String
+  postalCode: String
+  prefecture: String
+  address: String
+  isResidence: Boolean
+  roomLocation: RoomLocation
+}
+
+input AddressInput {
+  id: String
+  postalCode: String
+  prefecture: String
+  address: String
+  isResidence: Boolean
+  roomLocation: RoomLocationInput
+}
+
+type AddTestItemCategoryResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: [TestItemCategoryRecordCreationResponse]
+}
+
+type AddTestItemMasterResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: [TestItemMasterRecordCreationResponse]
+}
+
+type AddUserDTO {
+  isCreated: Boolean
+  refId: String
+  reason: String
+  created: Users
+}
+
+type AddUserGroupDTO {
+  isCreated: Boolean
+  refId: String
+  reason: String
+  created: UserGroup
+}
+
+type AddUserGroupResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddUserGroupDTO]
+}
+
+type AddUserPreferenceDTO {
+  reason: String
+  isCreated: Boolean
+  refId: String
+  created: UserPreferenceResponse
+}
+
+type AddUserPreferenceResponse {
+  message: String!
+  timestamp: String!
+  statusCode: String!
+  translationMap: TranslationMap
+  payload: [AddUserPreferenceDTO]
+}
+
+type AddUserResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [AddUserDTO]
+}
+
+input ageInput {
+  min: String
+  max: String
+}
+
+input ageRangeInput {
+  lower: Int
+  upper: Int
+}
+
+type ageRangeResponse {
+  lower: Int
+  upper: Int
+}
+
+type ageResponse {
+  min: String
+  max: String
+}
+
+input AggregateAnalysisInput {
+  testTemplateCode: String!
+  companyCode: String!
+  departmentCode: String
+  officeCode: String
+  divisionCode: String
+}
+
+type AggregateAnalysisResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: AggregateAnalysisResult
+}
+
+type AggregateAnalysisResult {
+  sectionWiseMalePopulationAnalysisAverages: PopulationAnalysisGenderDetails
+  sectionWiseFemalePopulationAnalysisAverages: PopulationAnalysisGenderDetails
+  riskAverageMale: RiskAverage
+  riskAverageFemale: RiskAverage
+  sectionWiseWorkplacePositivityAverages: [FactorScoreAverage]
+  sectionWiseWorkBurdenAnalysisAverages: [FactorScoreAverage]
+  groupAnalysis: GroupAnalysis
+}
+
+type AnnualPlan {
+  refId: String
+  charge: String
+  year: Int
+  officeRefId: String
+  attachment: [FileMetaData]
+  status: AnnualPlanStatus
+  createdBy: String
+}
+
+input AnnualPlanRequest {
+  year: Int!
+  officeRefId: String
+  charge: String
+  attachment: [FileMetaDataInput]
+}
+
+type AnnualPlansFilterResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  translationMap: TranslationMap!
+  payload: [AnnualPlan]
+}
+
+enum AnnualPlanStatus {
+  PUBLISHED
+  DELETED
+  DRAFT
+}
+
+type AnswerList {
+  question: Int
+  answer: Int
+}
+
+type Answers {
+  first: AnswerStructure
+  second: AnswerStructure
+  third: AnswerStructure
+  fourth: AnswerStructure
+}
+
+type AnswerScore {
+  first: Int
+  second: Int
+  third: Int
+  fourth: Int
+}
+
+type AnswerStructure {
+  number: Int
+  displayName: DisplayName
+}
+
+type AssignedClinic {
+  clinicRefId: String
+  displayName: DisplayNameMap
+}
+
+input AssignedClinicsListInput {
+  clinicRefId: String
+  displayName: DisplayNameMapInput
+}
+
+input AssignedMedicalCheckupInput {
+  checkupRefId: String
+  displayName: DisplayNameMapInput
+}
+
+input AssignedMedicalCheckupMapInput {
+  key: String
+  value: [AssignedMedicalCheckupInput]
+}
+
+type AssignedMedicalCheckupType {
+  checkupRefId: String
+  displayName: DisplayNameMap
+}
+
+type AssignedMedicalCheckupTypeMap {
+  key: String
+  value: [AssignedMedicalCheckupType]
+}
+
+input AssociatedStatusInput {
+  associatedStatusHeading: DisplayNameInput
+  color: String
+  infoHeading: DisplayNameInput
+  infoMessage: DisplayNameInput
+  advice: [DisplayNameInput]
+}
+
+type AssociatedStatusResponse {
+  associatedStatusHeading: DisplayName
+  color: String
+  infoHeading: DisplayName
+  infoMessage: DisplayName
+  advice: [DisplayName]
+}
+
+type Attendees {
+  Chairman: String
+  Health_Manager: String
+  Physician: String
+  Security_Manager: String
+  Other_attendees: String
+}
+
+input AttendeesInput {
+  Chairman: String
+  Health_Manager: String
+  Physician: String
+  Security_Manager: String
+  Other_attendees: String
+}
+
+enum BusinessDays {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+type BusinessHour {
+  displayName: DisplayNameMap
+  startHour: String
+  endHour: String
+}
+
+input BusinessHourInput {
+  displayName: DisplayNameMapInput
+  startHour: String
+  endHour: String
+}
+
+type BusinessHourMap {
+  key: String
+  value: BusinessHour
+}
+
+input BusinessHourMapInput {
+  key: String
+  value: BusinessHourInput
+}
+
+enum Category {
+  MEMO
+}
+
+enum CheckupCode {
+  GENERAL_MEDICAL_EXAMINATION
+  ORGANIC_SOLVENT_MEDICAL_EXAMINATION
+  LEAD_HEALTH_CHECK
+  TETRAALKYL_LEAD_HEALTH_CHECKUP
+  SPECIFIED_CHEMICAL_SUBSTANCE_HEALTH_CHECKUP
+  HYPERBARIC_WORK_HEALTH_CHECK
+  ASBESTOSE_HEALTH_CHECKUP
+  PNEUMOCONIOSIS_MEDICAL_EXAMINATION
+  FULL_BODY_MEDICAL_CHECKUP
+  IONIZATION_RADIATION_CHECK
+  RADIATION_DECONTAMINATION_CHECK
+}
+
+type CheckupMasterDeletionResponse {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+input CheckupMasterInput {
+  code: String
+  global: Boolean
+  displayName: DisplayNameMapInput
+  selectedTestItemCodes: [String]
+  testItemCodes: [String]
+  description: DescriptionInput
+  resultTemplate: ResultTemplateInput
+}
+
+type CheckupMasterMultipleResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [AddCheckupMasterDto]
+}
+
+type CheckupMasterResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: [AddCheckupMasterResponse]
+}
+
+type CheckupMasterSingleResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: AddCheckupMasterDto
+}
+
+enum CheckupResultDestination {
+  HOME
+  OFFICE_PHT_CENTER
+  OFFICE_MAIN_OFFICE
+  OFFICE_SELECTED_OFFICE
+}
+
+enum CheckupStatus {
+  PUBLISHED
+  DRAFT
+  DELETED
+}
+
+type CheckupUserDTO {
+  firstName: String
+  lastName: String
+  email: String
+  contactNumber: String
+  refId: String
+  createdClientCode: String
+  gender: Gender
+  ethnicity: String
+  birthday: Date
+  userPreferredTestItemCodes: JSON
+}
+
+type ClinicFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [ClinicResponse]
+  totalElements: Int
+}
+
+type ClinicMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap!
+  timestamp: String!
+  payload: [ClinicResponse]
+}
+
+input ClinicRequest {
+  name: String!
+  nameKana: String
+  unionName: String
+  unionNameKana: String
+  telephoneNo: [String]
+  fax: [String]
+  email: [String]
+  businessHours: [BusinessHourMapInput]
+  location: LocationInput
+  reservationMethod: ReservationMethod
+  sharingMethod: SharingMethod
+  storageAgencySupported: Boolean
+  checkupResultDestination: CheckupResultDestination
+  officeCheckupDestinationOfficeCode: String
+  supportedHealthCheckupTypes: [SupportedHealthCheckupTypeInput]
+  supportedHealthCheckupTypesOptional: [SupportedHealthCheckupTypeInputOptional]
+  officeList: [String]
+}
+
+type ClinicResponse {
+  refId: String!
+  name: String!
+  nameKana: String
+  unionName: String
+  unionNameKana: String
+  telephoneNo: [String]
+  fax: [String]
+  email: [String]
+  businessHours: [BusinessHourMap]
+  location: Location
+  reservationMethod: ReservationMethod
+  sharingMethod: SharingMethod
+  storageAgencySupported: Boolean
+  checkupResultDestination: CheckupResultDestination
+  officeCheckupDestinationOfficeCode: String
+  supportedHealthCheckupTypes: [SupportedHealthCheckupType]
+  supportedHealthCheckupTypesOptional: [SupportedHealthCheckupTypeOptional]
+  officeList: [Office]
+  status: ClinicStatus
+}
+
+type ClinicSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: ClinicResponse
+}
+
+enum ClinicStatus {
+  ACTIVE
+  DELETED
+}
+
+input ClinicUpdateRequest {
+  name: String
+  nameKana: String
+  unionName: String
+  unionNameKana: String
+  telephoneNo: [String]
+  fax: [String]
+  email: [String]
+  businessHours: [BusinessHourMapInput]
+  location: LocationInput
+  reservationMethod: ReservationMethod
+  sharingMethod: SharingMethod
+  storageAgencySupported: Boolean
+  checkupResultDestination: CheckupResultDestination
+  officeCheckupDestinationOfficeCode: String
+  supportedHealthCheckupTypes: [SupportedHealthCheckupTypeInput]
+  supportedHealthCheckupTypesOptional: [SupportedHealthCheckupTypeInputOptional]
+  officeList: [String]
+  status: ClinicStatus
+}
+
+type Company {
+  refId: String!
+  code: String
+  location: [Location]
+  telephoneNo: [TelephoneNumber]
+  contactPersonFamilyName: String
+  contactPersonMail: String
+  medicalCheckupStartDate: Date
+  medicalCheckupEndDate: Date
+  offices: [OfficeMap]
+  departments: [DepartmentMap]
+  displayNameMap: DisplayNameMap
+  designations: [DesignationMap]
+  status: EmployeementSectionStatus
+}
+
+type CompanyFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Company]
+  totalElements: Int
+}
+
+input CompanyInput {
+  code: String
+  location: [LocationInput]
+  telephoneNo: [TelephoneNumberInput]
+  contactPersonFamilyName: String
+  contactPersonMail: String
+  medicalCheckupStartDate: Date
+  medicalCheckupEndDate: Date
+  offices: [OfficeMapInput]
+  departments: [DepartmentMapInput]
+  displayNameMap: DisplayNameMapInput
+  status: EmployeementSectionStatus
+  designations: [DesignationMapInput]
+}
+
+type CompanyMultiplleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Company]
+}
+
+input CompositionInput {
+  itemCodes: [String]
+  displayValueSeparator: String
+  displayValueEvalExpression: String
+}
+
+type CompositionResponse {
+  itemCodes: [String]
+  displayValueSeparator: String
+  displayValueEvalExpression: String
+}
+
+input ConstraintInput {
+  allowedEthnicities: [String]
+  ageRange: ageRangeInput
+  allowedGenders: [Gender]
+}
+
+type ConstraintResponse {
+  allowedEthnicities: [String]
+  ageRange: ageRangeResponse
+  allowedGenders: [Gender]
+}
+
+type ConsultationRateCounts {
+  totalCount: Int
+  healthCheckupCompletedCount: Int
+  warningCount: Int
+  dangerCount: Int
+}
+
+type CorporateStructureFactorTotalAverage {
+  key: String
+  value: GroupAnalysisFactorAverageDetails
+}
+
+type CorporateStructureSectionTotalAverage {
+  key: String
+  value: GroupAnalysisSectionAverageDetails
+}
+
+type CsvFileUploadHistory {
+  refId: String
+  fileName: String
+  csvType: CsvType
+  uploadStatus: UploadStatus
+  errors: [String]
+}
+
+input CSVHistoryUpdateInput {
+  csvHistoryRefId: String
+  type: CsvType
+  uploadStatus: UploadStatus
+}
+
+enum CsvType {
+  EMPLOYEE
+  MEDICAL_CHECKUPS
+  STRESS_TEST
+  OVER_WORK
+}
+
+type CsvUploadHistoryResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  translationMap: TranslationMap!
+  payload: [CsvFileUploadHistory]
+}
+
+type CurrentJudgement {
+  judgement: Judgement
+  judgementRef: String
+  givenOn: String
+  givenBy: String
+}
+
+"""An RFC-3339 compliant Full Date Scalar"""
+scalar Date
+
+"""A slightly refined version of RFC-3339 compliant DateTime Scalar"""
+scalar DateTime
+
+type DeleteAnnualPlanResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: RecordDeletionResponse
+}
+
+type DeleteCheckupMasterResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [CheckupMasterDeletionResponse]
+}
+
+type DeleteClinicResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap!
+  timestamp: String!
+  payload: [RecordDeletionResponse]
+}
+
+type DeleteCompanyResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [RecordDeletionResponse]
+}
+
+type DeleteEmployeeDTO {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+type DeleteEmployeeResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeleteEmployeeDTO]
+}
+
+type DeleteInterviewDTO {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+type DeleteInterviewResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeleteInterviewDTO]
+}
+
+type deleteMeetingMinutesRespose {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [RecordDeletionResponse]
+}
+
+type DeletePermissionGroupDTO {
+  isDeleted: Boolean!
+  refId: String
+  reason: String
+}
+
+type DeletePermissionGroupResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeletePermissionGroupDTO]
+}
+
+type DeletePreferenceDTO {
+  isDeleted: Boolean
+  refId: String
+  reason: String
+}
+
+type DeleteReservationDTO {
+  isDeleted: Boolean!
+  refId: String
+  reason: String
+}
+
+type DeleteReservationResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeleteReservationDTO]
+}
+
+type DeleteTestItemCategoryResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [TestItemCategoryRecordDeletionResponse]
+}
+
+type DeleteTestItemMasterResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [TestItemMasterRecordDeletionResponse]
+}
+
+type DeleteUserGroupDTO {
+  isDeleted: Boolean!
+  refId: String
+  reason: String
+}
+
+type DeleteUserGroupResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeleteUserGroupDTO]
+}
+
+type DeleteUserPreferenceResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [DeletePreferenceDTO]
+}
+
+type DeleteUserResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [RecordDeletionResponse]
+}
+
+type Demo {
+  id: ID
+  testTemplateCode: String
+  companyCode: String
+  demoNum: Int
+  demoBool: Boolean
+  demoDate: String
+  demoTime: String
+}
+
+type DemoEntity {
+  id: String
+  testTemplateCode: String
+  companyCode: String
+  demoNum: Int
+  demoBool: Boolean
+  demoDate: String
+  demoTime: String
+}
+
+input DemoInput {
+  testTemplateCode: String!
+  companyCode: String!
+  demoNum: Int
+  demoBool: Boolean
+  demoDate: String
+  demoTime: String
+}
+
+type Department {
+  code: String
+  shortcode: String
+  displayNameMap: DisplayNameMap
+  status: EmploymentSectionStatus
+  divisions: [DivisionMap]
+}
+
+input DepartmentInput {
+  code: String!
+  shortcode: String
+  displayNameMap: DisplayNameMapInput
+  status: EmployeementSectionStatus
+  divisions: [DivisionMapInput]
+}
+
+type DepartmentMap {
+  key: String
+  value: Department
+}
+
+input DepartmentMapInput {
+  key: String
+  value: DepartmentInput
+}
+
+type Description {
+  en: String
+  ja: String
+}
+
+input DescriptionInput {
+  en: String!
+  ja: String!
+}
+
+type Designation {
+  code: String
+  displayNameMap: DisplayNameMap
+  status: EmployeementSectionStatus
+}
+
+input DesignationInput {
+  code: String!
+  displayNameMap: DisplayNameMapInput
+  status: EmployeementSectionStatus
+}
+
+type DesignationMap {
+  key: String
+  value: Designation
+}
+
+input DesignationMapInput {
+  key: String
+  value: DesignationInput
+}
+
+type DesiredDate {
+  date: String
+  timeOfTheDay: TimeOfTheDay
+}
+
+input DesiredDateListInput {
+  date: String
+  timeOfTheDay: TimeOfTheDay
+}
+
+type DisplayName {
+  en: String
+  ja: String
+}
+
+input DisplayNameInput {
+  en: String!
+  ja: String!
+}
+
+type DisplayNameMap {
+  en: String
+  ja: String
+}
+
+input DisplayNameMapInput {
+  en: String!
+  ja: String!
+}
+
+input DisplayNameRequest {
+  en: String
+  ja_web: String
+  ja_mobile: String
+}
+
+type DisplayNameResponse {
+  en: String
+  ja_web: String
+  ja_mobile: String
+}
+
+type Division {
+  code: String
+  shortcode: String
+  displayNameMap: DisplayNameMap
+  status: EmploymentSectionStatus
+}
+
+input DivisionInput {
+  code: String!
+  shortcode: String
+  displayNameMap: DisplayNameMapInput
+  status: EmployeementSectionStatus
+}
+
+type DivisionMap {
+  key: String
+  value: Division
+}
+
+input DivisionMapInput {
+  key: String
+  value: DivisionInput
+}
+
+type Employee {
+  user: User
+  empRefId: String
+  currentOffice: EmploymentSection!
+  currentDepartment: EmploymentSection!
+  currentDivision: EmploymentSection
+  employmentForm: EmployeementForm
+  joinedDate: String
+  empNo: String
+  labourInsuranceNo: LabourInsurance
+  designation: Designation
+  notices: [Notice]
+  status: Status
+  currentJudgement: CurrentJudgement
+  retirement: Retirement
+  longTermLeaveRecord: [LongTermLeave]
+  stressTestParticipation: [StressTestParticipation]
+  stressTestInterviewRecommendations: [InterviewRecommendations]
+  healthCheckups: [HealthCheckupFilterDTO]
+  overwork: OverWorksGetDTO
+  stressTests: [StressTestResult]
+  isMedicalNotificationSent: Boolean
+  isJudgementPending: Boolean
+  isJudgementReRequested: Boolean
+  memos: [EmployeeMemo]
+  createdDate: String
+  lastModifiedDate: String
+  createdBy: String
+  lastModifiedBy: String
+}
+
+type EmployeeDTO {
+  refId: String
+  employeeNo: String
+  companyCode: String
+  officeCode: String
+  departmentCode: String
+  divisionCode: String
+  joinedDate: String
+  employmentForm: EmployeementForm
+  notices: Notice
+  currentJudgement: CurrentJudgement
+  status: Status
+  designation: String
+  healthCheckupTypeFirstTime: HealthCheckupType
+  healthCheckupTypeSecondTime: HealthCheckupType
+}
+
+type EmployeeFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Employee]
+  totalElements: Int
+}
+
+input EmployeeInput {
+  companyCode: String!
+  firstName: String!
+  lastName: String!
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender!
+  dob: Date!
+  age: Int
+  telephoneNumbers: [TelephoneNumberInput]
+  addresses: [AddressInput]
+  officeCode: String!
+  departmentCode: String!
+  divisionCode: String
+  joinedDate: Date
+  employementForm: EmployeementForm
+  employeeNo: String!
+  labourInsuranceNo: String
+  insurerNumber: String
+  symbol: String
+  insuranceType: String
+  mailAddress: String
+  notices: [String]
+  status: Status!
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [String]
+  designation: String
+  interviewRecommendation: InterviewRecommendation
+  employeeStressTestInterview: StressTestInterview
+  userGroups: [String]
+  password: String
+}
+
+type EmployeeMemo {
+  content: String
+  type: EmployeeMemoType
+  givenBy: String
+  createdOn: String
+}
+
+input EmployeeMemoInput {
+  content: String
+  type: EmployeeMemoType
+  givenBy: String
+}
+
+enum EmployeeMemoType {
+  PRE_JUDGEMENT
+  POST_JUDGEMENT
+  RESERVATION_STATUS
+  MEDICAL_FOLLOWUP
+  MEDICAL_RESULT
+  EMPLOYEE_REMARKS
+  JUDGEMENT_FOLLOWUP
+}
+
+enum EmployeementForm {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  TEMPORARY
+}
+
+enum EmployeementSectionStatus {
+  ACTIVE
+  PENDING_APPROVAL
+  DELETED
+}
+
+type EmployeeMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Employee]
+}
+
+type EmployeeSection {
+  code: String
+  displayNameMap: DisplayNameMap
+  status: EmploymentSectionStatus
+}
+
+input EmployeeSectionInput {
+  code: String
+  displayNameMap: DisplayNameInput
+  status: EmploymentSectionStatus
+}
+
+type EmployeeSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap!
+  timestamp: String!
+  payload: Employee
+}
+
+type EmployeeSummery {
+  empRefId: String
+  employeeNo: String
+  companyCode: String
+  officeCode: String
+  departmentCode: String
+  divisionCode: String
+  joinedDate: String
+  employmentForm: EmployeementForm
+  currentJudgement: CurrentJudgement
+  employmentStatus: Status
+  insuranceNumber: String
+  designation: Designation
+}
+
+input EmployeeUpdateInput {
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: Date
+  age: Int
+  telephoneNumbers: [TelephoneNumberInput]
+  addresses: [AddressInput]
+  officeCode: String
+  departmentCode: String
+  divisionCode: String
+  joinedDate: Date
+  employementForm: EmployeementForm
+  employeeNo: String
+  labourInsuranceNo: String
+  insurerNumber: String
+  symbol: String
+  insuranceType: String
+  mailAddress: String
+  notices: [String]
+  status: Status
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [String]
+  recordStatus: RecordStatus
+  designation: String
+  interviewRecommendation: InterviewRecommendation
+  employeeStressTestInterview: StressTestInterview
+  isMedicalNotificationSent: Boolean
+  isJudgementPending: Boolean
+  isJudgementReRequested: Boolean
+  memos: [EmployeeMemoInput]
+}
+
+type EmploymentSection {
+  code: String
+  displayNameMap: DisplayNameMap
+  status: EmploymentSectionStatus
+}
+
+enum EmploymentSectionStatus {
+  ACTIVE
+  PENDING_APPROVAL
+  DELETED
+}
+
+type ErrorDetails {
+  columnName: String
+  displayName: DisplayName
+}
+
+type Factor {
+  code: FactorENUM
+  displayName: DisplayName
+}
+
+enum FactorCodeType {
+  A
+  B
+  C
+  D
+  E
+  F
+  G
+  H
+  I
+  J
+  K
+  L
+  M
+  N
+  O
+  P
+  Q
+  R
+  S
+  U
+  V
+  W
+  X
+  Y
+  Z
+  AA
+  AB
+  AC
+  AD
+  AE
+  AF
+  AG
+  AH
+  AI
+  AJ
+  AK
+  AL
+  AM
+  AN
+  AO
+  AP
+  AQ
+  AR
+  AS
+}
+
+enum FactorENUM {
+  A
+  B
+  C
+  D
+  E
+  F
+  G
+  H
+  I
+  J
+  K
+  L
+  M
+  N
+  O
+  P
+  Q
+  R
+  S
+  U
+  V
+  W
+  X
+  Y
+  Z
+  AA
+  AB
+  AC
+  AD
+  AE
+  AF
+  AG
+  AH
+  AI
+  AJ
+  AK
+  AL
+  AM
+  AN
+  AO
+  AP
+  AQ
+  AR
+  AS
+}
+
+type FactorScoreAverage {
+  nationalAverage: Float
+  averageScore: Float
+  previousAverageScore: Float
+  section: Sections
+}
+
+type FactorScores {
+  key: FactorCodeType
+  value: Int
+}
+
+type FactorTotalAverage {
+  key: FactorENUM
+  value: Float
+}
+
+type FileMetaData {
+  fileName: String
+  category: Category
+  displayName: DisplayNameMap
+  description: String
+  segmentLocationId: String
+  fileSizeBytes: Int
+  filePath: String
+  uploadedBy: String
+  uploadedOn: String
+  deletedBy: String
+  deletedOn: String
+  deleted: Boolean
+  ownerId: String
+  fileId: String
+  ownershipType: OwnershipType
+}
+
+input FileMetaDataInput {
+  fileName: String
+  category: Category
+  displayName: DisplayNameMapInput
+  description: String
+  segmentLocationId: String
+  fileSizeBytes: Int
+  filePath: String
+  uploadedBy: String
+  uploadedOn: DateTime
+  deletedBy: String
+  deletedOn: DateTime
+  deleted: Boolean
+  ownerId: String
+  fileId: String
+  ownershipType: OwnershipType
+}
+
+type FileUploadApiResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: FileMetaData
+}
+
+type FilterStressTestResultResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [StressTestResult]
+  totalElements: Int
+}
+
+type FilterStressTestTemplateResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  totalElements: Int
+  payload: [StressTestTemplate]
+}
+
+type filterSystemConfigurationResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  totalElements: Int
+  payload: String
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  NOT_SPECIFIED
+}
+
+type GroupAnalysis {
+  companyFactorTotalAverageList: GroupAnalysisFactorAverageDetails
+  officeWiseFactorTotalAverageList: [CorporateStructureFactorTotalAverage]
+  departmentWiseFactorTotalAverageList: [CorporateStructureFactorTotalAverage]
+  divisionWiseFactorTotalAverageList: [CorporateStructureFactorTotalAverage]
+  companyWorkPlacePositivityAverageList: GroupAnalysisSectionAverageDetails
+  officeWiseWorkPlacePositivityAverageList: [CorporateStructureSectionTotalAverage]
+  departmentWorkPlacePositivityAverageList: [CorporateStructureSectionTotalAverage]
+  divisionWiseWorkPlacePositivityAverageList: [CorporateStructureSectionTotalAverage]
+  companyWorkBurdenAverageList: GroupAnalysisSectionAverageDetails
+  officeWiseWorkBurdenAverageList: [CorporateStructureSectionTotalAverage]
+  departmentWorkBurdenAverageList: [CorporateStructureSectionTotalAverage]
+  divisionWiseWorkBurdenAverageList: [CorporateStructureSectionTotalAverage]
+}
+
+type GroupAnalysisFactorAverageDetails {
+  totalParticipantCount: Int
+  averages: [FactorTotalAverage]
+}
+
+type GroupAnalysisSectionAverageDetails {
+  totalParticipantCount: Int
+  averages: [SectionTotalAverage]
+}
+
+type HealthCheckup {
+  refId: String
+  clinicName: String
+  user: User
+  employee: EmployeeSummery
+  consultationDateTime: String
+  comprehensiveJudgment: String
+  generalFindings: String
+  metabolicSyndromeDetermination: String
+  healthGuidanceJudgment: String
+  historyOfPresentIllness: String
+  medicalHistory: String
+  subjectiveSymptoms: String
+  objectiveSymptoms: String
+  abnormalityFields: [String]
+  checkupCode: String
+}
+
+type HealthCheckupFilterDTO {
+  refId: String
+  checkupCode: String
+  createdClientCode: String
+  clinicName: String
+  user: UserDTO
+  employee: EmployeeDTO
+  consultationDateTime: String
+  comprehensiveJudgment: String
+  generalFindings: String
+  metabolicSyndromeDetermination: String
+  healthGuidanceJudgment: String
+  historyOfPresentIllness: String
+  medicalHistory: String
+  subjectiveSymptoms: String
+  objectiveSymptoms: String
+  abnormalityFields: [String]
+  externalTag: String
+  testItemResults: JSON
+  criticalItems: JSON
+  requestedBy: String
+  requestedOn: String
+  review: String
+  status: CheckupStatus
+  isAbnormal: Boolean
+  healthCheckupStatus: HealthCheckupStatus
+}
+
+type HealthCheckupFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [HealthCheckupFilterDTO]
+  totalElements: Int
+}
+
+type HealthCheckupRateCounts {
+  code: String
+  totalCount: Int
+  generalCount: Int
+}
+
+enum HealthCheckupStatus {
+  NORMAL
+  CRITICAL
+  DANGER
+}
+
+type HealthCheckupSummary {
+  companyParticipationRate: HealthCheckupRateCounts
+  officeWiseParticipationRate: [HealthCheckupRateCounts]
+  departmentWiseParticipationRate: [HealthCheckupRateCounts]
+  officeWiseAbnormalRate: [HealthCheckupRateCounts]
+  departmentWiseAbnormalRate: [HealthCheckupRateCounts]
+  officeWiseSpecificHealthGuidanceRate: [HealthCheckupRateCounts]
+  departmentWiseSpecificHealthGuidanceRate: [HealthCheckupRateCounts]
+  yearWiseParticipationRate: [HealthCheckupYearWiseRateCounts]
+  yearWiseAbnormalRate: [HealthCheckupYearWiseRateCounts]
+  yearWiseSpecificHealthGuidanceRate: [HealthCheckupYearWiseRateCounts]
+  reservationStatusRateCounts: ReservationStatusRateCounts
+  judgementStatusRateCounts: JudgementStatusRateCounts
+  consultationRateCounts: ConsultationRateCounts
+}
+
+enum HealthCheckupType {
+  REGULAR
+  SPECIAL
+  FULL_BODY
+}
+
+type HealthCheckupYearWiseRateCounts {
+  year: Int
+  totalCount: Int
+  generalCount: Int
+}
+
+input IncludedForInput {
+  genders: [Gender]
+  age: ageInput
+  ethnicities: [String]
+}
+
+type IncludedForResponse {
+  genders: [Gender]
+  age: ageResponse
+  ethnicities: [String]
+}
+
+type Interview {
+  refId: String
+  employee: Employee
+  scheduledInterviewDateTime: String
+  conductBy: User
+  type: InterviewType
+  duration: InterviewDuration
+  reason: String
+  content: String
+  viewAllowedUserGroups: [UserGroup]
+  status: InterviewStatus
+}
+
+enum InterviewDuration {
+  MINUTES_30
+  MINUTES_60
+  MINUTES_90
+}
+
+type InterviewFilterResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [Interview]
+  totalElements: Int
+}
+
+input InterviewInput {
+  refId: String
+  empNo: String
+  userRefId: String
+  type: InterviewType
+  status: InterviewStatus
+  testTemplateCode: String
+}
+
+type InterviewMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Interview]
+}
+
+input InterviewRecommendation {
+  testTemplateCode: String
+  isInterviewRecommended: Boolean
+  userGroups: [String]
+  password: String
+}
+
+type InterviewRecommendations {
+  testTemplateCode: String
+  isInterviewRecommended: Boolean
+  interviews: [Interviews]
+}
+
+type Interviews {
+  interviewRefId: String
+  isInterviewed: Boolean
+}
+
+type InterviewSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: Interview
+}
+
+enum InterviewStatus {
+  DELETED
+  PENDING
+  STARTED
+  COMPLETED
+}
+
+enum InterviewType {
+  HEALTH_CHECK
+  HEALTH_GUIDANCE
+  STRESS_CHECK
+  OVERWORK
+  ABSENCE_OR_REINSTATEMENT
+  MENTAL_HEALTH
+  OTHERS
+}
+
+input InterviewUpdateInput {
+  scheduledInterviewDateTime: String
+  duration: InterviewDuration
+  status: InterviewStatus
+}
+
+input ItemInfoInput {
+  displayHeading: DisplayNameInput
+  displayMessage: DisplayNameInput
+  associatedStatus: [AssociatedStatusInput]
+}
+
+type ItemInfoResponse {
+  displayHeading: DisplayName
+  displayMessage: DisplayName
+  associatedStatus: [AssociatedStatusResponse]
+}
+
+"""A JSON scalar"""
+scalar JSON
+
+enum Judgement {
+  JUDGEMENT_HOLD
+  NORMAL
+  LEAVE_REQUIRED
+  LIMITED_WORKING
+  WORKING_HOURS_REDUCTION
+  OVERTIME_LIMIT
+  BUSINESS_TRAVEL_RESTRICTIONS
+  WORK_PLACE_CHANGE
+  HEIGHT_PLACE_WORK_PROHIBITED
+  CAR_DRIVING_PROHIBITED
+  FREE_INPUT
+}
+
+type JudgementStatusRateCounts {
+  totalCount: Int
+  regularWorkCount: Int
+  restrictedFromWorkingCount: Int
+  leaveRequiredCount: Int
+}
+
+type LabourInsurance {
+  symbol: String
+  insuranceNumber: String
+  insurerNumber: String
+  insurerName: String
+  companyName: String
+  fullName: String
+  insuredPersonName: String
+  dateOfExpiry: String
+  dateOfGrant: String
+  dateOfDelivery: String
+  insuranceType: String
+}
+
+enum Level {
+  NORMAL
+  WARNING
+  CRITICAL
+  DANGER
+  DANGER_LOWER
+  CRITICAL_LOWER
+  CRITICAL_UPPER
+  DANGER_UPPER
+}
+
+input limitInput {
+  lower: String
+  upper: String
+}
+
+type limitResponse {
+  lower: String
+  upper: String
+}
+
+type Location {
+  id: String
+  postalCode: String
+  prefecture: String
+  address: String
+  roomLocation: RoomLocation
+}
+
+input LocationInput {
+  id: String
+  postalCode: String
+  prefecture: String
+  address: String
+  roomLocation: RoomLocationInput
+}
+
+type LongTermLeave {
+  longTermLeaveStartDate: String
+  longTermLeaveEndDate: String
+}
+
+type MedicalCheckupDTO {
+  masterCode: String
+  createdClientCode: String
+  externalTag: String
+  checkupUser: CheckupUserDTO
+  checkupUserId: String
+  testItemResults: JSON
+  criticalItems: JSON
+  requestedBy: String
+  requestedOn: String
+  requestRef: String
+  review: String
+  status: CheckupStatus
+  isAbnormal: Boolean
+  healthCheckup: HealthCheckup
+  groupCode: String
+  totalCount: Int
+}
+
+type MedicalCheckupMultipleResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [MedicalCheckupDTO]
+  totalElements: Int
+}
+
+type MedicalCheckupResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: MedicalCheckupDTO
+}
+
+type MeetingMinutes {
+  refId: String!
+  title: String!
+  implementationDate: String
+  startTime: String
+  endTime: String
+  officeRefId: String
+  charge: String
+  place: String
+  attendees: Attendees
+  attachment: [FileMetaData]
+  content: String
+  status: MeetingMinutesStatus
+  isPhysicianVerified: Boolean
+  physicianComment: String
+  createdBy: String
+}
+
+type MeetingMinutesFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [MeetingMinutes]
+  totalElements: Int
+}
+
+input MeetingMinutesInput {
+  title: String!
+  implementationDate: String
+  startTime: String
+  endTime: String
+  officeRefId: String
+  charge: String
+  place: String
+  attendees: AttendeesInput
+  attachment: [FileMetaDataInput]
+  content: String
+  status: MeetingMinutesStatus
+  isPhysicianVerified: Boolean
+  physicianComment: String
+}
+
+enum MeetingMinutesStatus {
+  DRAFT
+  DELETED
+  PUBLISHED
+}
+
+type Memo {
+  content: String
+  createdOn: String
+  createdBy: String
+}
+
+input MemoInput {
+  content: String
+  givenBy: String
+  createdDate: String
+}
+
+input MemoListInput {
+  content: String
+  createdBy: String
+}
+
+type Memos {
+  content: String
+  givenBy: String
+  createdDate: String
+}
+
+enum Message {
+  MESSAGE_ONE
+  MESSAGE_TWO
+  MESSAGE_THREE
+  MESSAGE_FOUR
+  MESSAGE_FIVE
+  MESSAGE_SIX
+}
+
+type MessageGeneratingValues {
+  key: ResultKey
+  value: String
+}
+
+type Messages {
+  key: Message
+  value: DisplayName
+}
+
+type MonthlyDetails {
+  averageOverTimeHours: Float
+  month: String
+}
+
+type MultipleApiResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: [object]
+}
+
+type Mutation {
+  addDemoEntity(demoInput: DemoInput): Demo
+  fileUpload(file: String!, key: String, fileName: String): FileUploadApiResponse
+  addMeetingMinutes(meetingMinutesInputs: [MeetingMinutesInput]!): AddMeetingMinutesRespose
+  deleteMeetingMinutes(meetingMinutesRefIds: [String]!): deleteMeetingMinutesRespose
+  updateMeetingMinutes(refId: String!, meetingMinutesInput: MeetingMinutesInput): UpdateMeetingMinutesInput
+  addAnnualPlans(annualPlanRequests: [AnnualPlanRequest]!): AddAnnualPlansResponse
+  updateAnnualPlan(refId: String!, updateAnnualPlanRequest: AnnualPlanRequest): updateAnnualPlanResponse
+  deleteAnnualPlan(refId: String!): DeleteAnnualPlanResponse
+  addPermissionGroup(permissionGroupInputs: [PermissionGroupInput]!): AddPermissionGroupResponse
+  updatePermissionGroup(categoryCode: String!, permissionGroupUpdateInput: PermissionGroupUpdateInput!): PermissionGroupSingleResponse
+  deletePermissionGroup(categoryCodes: [String]!): DeletePermissionGroupResponse
+  addUserGroup(userGroupInputs: [UserGroupInput]!): AddUserGroupResponse
+  updateUserGroup(name: String!, userGroupUpdateInput: UserGroupUpdateInput!): UserGroupSingleResponse
+  deleteUserGroup(names: [String]!): DeleteUserGroupResponse
+  addCheckupMaster(checkupMasterInput: [CheckupMasterInput]!): CheckupMasterResponse
+  deleteCheckupMaster(checkupMasterCode: [String]!): DeleteCheckupMasterResponse
+  updateCheckupMaster(code: String!, checkupMasterInput: CheckupMasterInput!): UpdateCheckupMasterResponse
+  addClinics(clinicRequests: [ClinicRequest]!): AddClinicResponse
+  updateClinic(refId: String!, clinicRequest: ClinicUpdateRequest): ClinicSingleResponse
+  deleteClinics(clinicRefIds: [String]!): DeleteClinicResponse
+  addCompanies(companyInputs: [CompanyInput]!): AddCompanyResponse
+  deleteCompanies(companyRefIds: [String]!): DeleteCompanyResponse
+  updateCompany(refId: String!, companyInput: CompanyInput): UpdateCompanyInput
+  addEmployee(employeeInputs: [EmployeeInput]): AddEmployeeResponse
+  addEmployeeCsv(csv: String!): AddEmployeeResponse
+  updateEmployee(companyCode: String!, employeeNo: String!, employeeUpdateInput: EmployeeUpdateInput): EmployeeSingleResponse
+  deleteEmployee(employeeNos: [String]!): DeleteEmployeeResponse
+  addHealthCheckupCsv(csv: String!, checkupCode: String!): AddHealthCheckupResponse
+  addInterviews(interviewInputs: [InterviewInput]): AddInterviewResponse
+  updateInterview(refId: String!, interviewUpdateInput: InterviewUpdateInput): InterviewSingleResponse
+  deleteInterview(refIds: [String]!): DeleteInterviewResponse
+  updateMedicalCheckupReview(refId: String!, review: String!): MedicalCheckupResponse
+  addOverWorkCsv(csv: String!): AddOverWorkResponse
+  addReservation(reservationInputs: [ReservationInput]!): AddReservationResponse
+  updateReservationByReservationID(reservationRefId: String!, reservationUpdateInput: ReservationUpdateInput): ReservationSingleResponse
+  deleteReservations(reservationRefIds: [String]!): DeleteReservationResponse
+  updateCSVFileUploadHistory(csvHistoryUpdateInput: CSVHistoryUpdateInput): UpdateCSVHistoryResponse
+  createStressTestTemplates(stressTestTemplateCreateInputs: [StressTestTemplateCreateInput]): StressTestTemplateCreationResponse
+  updateStressTestTemplate(stressTestTemplateUpdateInput: StressTestTemplateUpdateInput): StressTestTemplateResponse
+  deleteStressTestTemplates(stressTestTemplateDeleteInputs: [StressTestTemplateDeleteInputs]): StressTestTemplateDeleteResponse
+  calculateStressTestResults(stressTestResultCalculationInputs: [StressTestResultCalculationInput]): StressTestResultCalculationResponse
+  deleteStressTestResults(stressTestResultDeleteInputs: [StressTestResultDeleteInput]): StressTestResultDeletionResponse
+  updateStressTestResults(stressTestResultUpdateInput: StressTestResultUpdateInput): StressTestResultUpdateResponse
+  stressTestResultCSVUpload(csv: String!, companyCode: String!): StressTestCSVUploadResponse
+  addTestItemCategory(itemCategoryInputs: [TestItemCategoryInput]!): AddTestItemCategoryResponse
+  updateTestItemCategory(categoryCode: String!, itemCategoryInput: UpdateTestItemCategoryInput): UpdateTestItemCategoryResponse
+  deleteTestItemCategory(categoryCode: [String]!): DeleteTestItemCategoryResponse
+  addTestItemMaster(testItemMasterInputs: [TestItemMasterInput]!): AddTestItemMasterResponse
+  updateTestItemMaster(code: String!, testItemMasterInput: TestItemMasterUpdateInput!): UpdateTestItemMasterResponse
+  updateBulkTestItemMaster(testItemMasterInputs: [TestItemMasterUpdateInput]!): UpdateBulkTestItemMasterResponse
+  deleteTestItemMaster(code: [String]!): DeleteTestItemMasterResponse
+  addUsers(userInputs: [UserInput]): AddUserResponse
+  updateUser(refId: String!, userInputs: UserInput): UpdateUserResponse
+  deleteUser(refIds: [String]!): DeleteUserResponse
+  resetPassword(resetPasswordInput: ResetPasswordInput!): ResetPasswordResponse
+  addUserPreference(userEmailAddress: String, userPreferenceInputs: [UserPreferenceInput]): AddUserPreferenceResponse
+  updateUserPreference(userEmailAddress: String, userPreferenceUpdateInput: UserPreferenceUpdateInput): UpdateUserPreferenceResponse
+  deleteUserPreference(userEmailAddress: String, userPreferenceDeleteInput: UserPreferenceDeleteInput): DeleteUserPreferenceResponse
+}
+
+type NonPayloadResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+}
+
+type Notice {
+  date: String
+  text: String
+}
+
+enum NotificationMethod {
+  APP
+  E_MAIL
+}
+
+union object = Employee | DemoEntity
+
+type Office {
+  refId: String
+  code: String
+  shortcode: String
+  physicianList: [Physician]
+  displayNameMap: DisplayNameMap
+  status: EmploymentSectionStatus
+  assignedDepartments: [String]
+}
+
+type OfficeDepartmentSummary {
+  code: String
+  overWorkRiskCount: Int
+  totalEmployeeCount: Int
+}
+
+input OfficeInput {
+  code: String
+  shortcode: String
+  physicianList: [PhysicianInput]
+  displayNameMap: DisplayNameMapInput
+  departments: [String]
+  status: EmployeementSectionStatus
+  assignedDepartments: [String]
+}
+
+type OfficeMap {
+  key: String
+  value: Office
+}
+
+input OfficeMapInput {
+  key: String
+  value: OfficeInput
+}
+
+type OverWork {
+  refId: String
+  employee: Employee
+  month: String
+  workingHours: Float
+  overtimeHours: Float
+}
+
+type OverWorkedGetResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [OverWorksGetDTO]
+  totalElements: Int
+}
+
+type OverWorkEntity {
+  refId: String
+  empRefId: String
+  month: String
+  workingHours: Float
+  overWorkedHours: Float
+  entryDate: String
+}
+
+type overWorkGroupCounts {
+  Below10EmployeeCount: String
+  Between10And20EmployeeCount: String
+  Between20And40EmployeeCount: String
+  Between40And60EmployeeCount: String
+  Above60: String
+}
+
+type OverWorksGetDTO {
+  employee: Employee
+  recentMonthsOverWorks: RecentMonthsOverWorks
+  risk: Boolean
+  overWorks: [OverWorkEntity]
+}
+
+type OverWorkSummary {
+  graphOverWorkDTOS: [MonthlyDetails]
+  overWorkGroupCounts: overWorkGroupCounts
+  yearlyOverWorkSummaryMap: [YearlyOverWorkSummary]
+  officeWiseSummary: [OfficeDepartmentSummary]
+  departmentWiseSummary: [OfficeDepartmentSummary]
+}
+
+enum OwnershipType {
+  PERSONAL
+  COMPANY
+}
+
+input PaginationInput {
+  page: Int!
+  size: Int!
+}
+
+type PaginationResponse {
+  size: Int
+  totalElements: Int
+  totalPages: Int
+  number: Int
+}
+
+enum PaymentMethod {
+  SELF_PAYMENT
+  OVER_THE_COUNTER_PAYMENT
+  CORPORATE_PAYMENT
+  COMPANY_BURDEN
+}
+
+type Permission {
+  code: String
+  displayName: DisplayName
+}
+
+type PermissionGroup {
+  refId: String
+  categoryCode: String
+  displayName: DisplayName
+  permissions: [Permission]
+  status: String
+}
+
+type PermissionGroupFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [PermissionGroup]
+  totalElements: Int
+}
+
+input PermissionGroupInput {
+  categoryCode: String!
+  displayName: DisplayNameInput
+  permissionInputs: [PermissionInput]!
+}
+
+type PermissionGroupMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [PermissionGroup]
+}
+
+type PermissionGroupObj {
+  refId: String
+  categoryCode: String
+  displayName: DisplayName
+  permissions: [Permission]
+  status: String
+}
+
+type PermissionGroupSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: PermissionGroup
+}
+
+enum PermissionGroupStatus {
+  ACTIVE
+  DELETED
+}
+
+input PermissionGroupUpdateInput {
+  categoryCode: String
+  displayName: DisplayNameInput
+  permissionInputs: [PermissionInput]
+  status: PermissionGroupStatus
+}
+
+input PermissionInput {
+  permissionCode: String!
+  displayName: DisplayNameInput
+}
+
+input PermissionUpdateInput {
+  permissionCode: String
+  displayName: DisplayNameInput
+}
+
+type Physician {
+  refId: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: Date
+  emailAddress: String
+  telephoneNumbers: [TelephoneNumber]
+  addressList: [Address]
+}
+
+input PhysicianInput {
+  refId: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  emailAddress: String
+  telephoneNumbers: [TelephoneNumberInput]
+  addressList: [AddressInput]
+}
+
+type PopulationAnalysisGenderDetails {
+  participantCount: Int
+  populationAverages: [FactorScoreAverage]
+}
+
+type Query {
+  getDemoEntityById(id: String): Demo
+  filter(filter: String): MultipleApiResponse
+  getSysConfigValue(key: String): StringApiResponse
+  getLicense: StringApiResponse
+  filterMeetingMinutes(filter: String!, sortBy: String, paginationInput: PaginationInput): MeetingMinutesFilterResponse
+  filterAnnualPlan(filter: String!, sortBy: String, paginationInput: PaginationInput): AnnualPlansFilterResponse
+  filterPermissionGroup(filter: String!, sortBy: String, paginationInput: PaginationInput): PermissionGroupFilterResponse
+  filterUserGroup(filter: String!, sortBy: String, paginationInput: PaginationInput): UserGroupFilterResponse
+  getCheckupMaster(checkupMasterCode: String!): CheckupMasterSingleResponse
+  getAllCheckupMaster(page: Int, size: Int): CheckupMasterMultipleResponse
+  filterClinic(filter: String!, sortBy: String, paginationInput: PaginationInput): ClinicFilterResponse
+  filterCompany(filter: String!, sortBy: String, paginationInput: PaginationInput): CompanyFilterResponse
+  filterCsvUploadHistories(filter: String!, sortBy: String, paginationInput: PaginationInput): CsvUploadHistoryResponse
+  filterEmployee(filter: String!, sortBy: String, paginationInput: PaginationInput): EmployeeFilterResponse
+  downloadSampleCsv(key: String!): StringApiResponse
+  fileDownload(objectId: String!, resourceType: String!): StringApiResponse
+  filterHealthCheckup(filter: String!, customFilter: String, sortBy: String, paginationInput: PaginationInput, serviceFilter: String): HealthCheckupFilterResponse
+  filterInterview(filter: String!, sortBy: String, paginationInput: PaginationInput): InterviewFilterResponse
+  getMedicalCheckups(paginationInput: PaginationInput, filter: String!, sortBy: String!, groupBy: String!): MedicalCheckupMultipleResponse
+  filterOverWork(filter: String!, sortBy: String, paginationInput: PaginationInput): OverWorkedGetResponse
+  filterReservations(filter: String!, sortBy: String, paginationInput: PaginationInput): ReservationFilterResponse
+  stressTestResultAggregateAnalysis(aggregateAnalysisInput: AggregateAnalysisInput): AggregateAnalysisResponse
+  filterStressTestTemplates(filter: String!, sortBy: String, paginationInput: PaginationInput): FilterStressTestTemplateResponse
+  getQuestionnaire(questionCategory: QuestionCategory!): QuestionnaireResponse
+  filterStressTestResults(filter: String!, sortBy: String, paginationInput: PaginationInput): FilterStressTestResultResponse
+  getResultSummary(summaryInput: SummaryInput): SummaryResponse
+  filterSystemConfigurations(filter: String!, sortBy: String, paginationInput: PaginationInput): filterSystemConfigurationResponse
+  getTestItemCategory(categoryCode: String!): TestItemCategoryMultipleResponse
+  getTestItemMaster(code: String): TestItemMasterSingleResponse
+  getAllTestItemMaster(page: Int, size: Int): TestItemMasterMultipleResponse
+  filterUserPreference(filter: String!): UserPreferenceFilterResponse
+  filterUser(filter: String, paginationInput: PaginationInput): UserFilterResponse
+}
+
+input QuestionAndAnswer {
+  question: Int!
+  answer: Int!
+}
+
+enum QuestionCategory {
+  QUESTION_23
+  QUESTION_57
+  QUESTION_80
+  QUESTION_120
+}
+
+type Questionnaire {
+  questionRefId: String
+  questionNumber: Int
+  question: QuestionStructure
+  answers: Answers
+  personalAnalysisScore: AnswerScore
+  populationAnalysisScore: AnswerScore
+  workBurdenAnalysisScore: AnswerScore
+  factor: Factor
+  displayName: DisplayName
+  subCategory: SubCategory
+}
+
+type QuestionnaireResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Questionnaire]
+}
+
+type QuestionStructure {
+  displayName: DisplayName
+}
+
+input RangeInput {
+  constraint: ConstraintInput
+  limit: limitInput
+  targetReadings: [String]
+  level: Level
+  displayHeading: DisplayNameInput
+  displayMessage: DisplayNameInput
+  color: String
+}
+
+type RangeResponse {
+  constraint: ConstraintResponse
+  limit: limitResponse
+  targetReadings: [String]
+  level: Level
+  displayHeading: DisplayName
+  displayMessage: DisplayName
+  color: String
+}
+
+type RecentMonthsOverWorks {
+  ThisMonth: OverWorkEntity
+  PreviousMonth: OverWorkEntity
+  PreviousMonthBefore: OverWorkEntity
+}
+
+type RecordCreationResponse {
+  isCreated: Boolean!
+  refId: String!
+  reason: String
+  created: ClinicResponse
+}
+
+type RecordDeletionResponse {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+enum RecordStatus {
+  ACTIVE
+  DELETED
+}
+
+type RequestErrorDTO {
+  columnName: String
+  displayName: DisplayNameMap
+}
+
+type Reservation {
+  reservationRefId: String
+  dateOfExamination: String
+  user: User
+  reservationStatus: ReservationStatus
+  clinicRefId: String
+  desiredDates: [DesiredDate]
+  suggestedMonth: SuggestedMonth
+  notificationMethod: NotificationMethod
+  empRefId: String
+  assignedMedicalCheckups: [AssignedMedicalCheckupTypeMap]
+  assignedClinics: [AssignedClinic]
+  memos: [Memo]
+}
+
+type ReservationFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Reservation]
+  totalElements: Int
+}
+
+input ReservationInput {
+  reservationRefId: String
+  dateOfExamination: String
+  userId: String
+  reservationStatus: ReservationStatus
+  clinicRefId: String
+  desiredDates: [DesiredDateListInput]
+  suggestedMonth: SuggestedMonth
+  notificationMethod: NotificationMethod
+  empRefId: String
+  assignedMedicalCheckups: [AssignedMedicalCheckupMapInput]
+  assignedClinics: [AssignedClinicsListInput]
+  memos: [MemoListInput]
+}
+
+enum ReservationMethod {
+  TELEPHONE
+  EMAIL
+  FAX
+  POST
+}
+
+type ReservationMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [Reservation]
+}
+
+type ReservationSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: Reservation
+}
+
+enum ReservationStatus {
+  ADJUSTING
+  RESERVATION_CONFIRMED
+  THE_DAY_BEFORE_MEDICAL_EXAMINATION
+  READJUST
+  RESULTS_REFLECTED
+  ACTIVE
+  DELETED
+  NOT_RESERVED
+  RESERVATION_PENDING
+  RESERVATION_COMPLETED
+  ON_THE_DAY_OF_MEDICAL_EXAMINATION
+  MEDICAL_CHECK_UP_COMPLETED
+  RESULTS_UPLOAD_COMPLETED
+}
+
+type ReservationStatusRateCounts {
+  totalCount: Int
+  scheduledCount: Int
+  confirmedCount: Int
+}
+
+input ReservationUpdateInput {
+  dateOfExamination: String
+  userId: String
+  reservationStatus: ReservationStatus
+  clinicRefId: String
+  desiredDates: [DesiredDateListInput]
+  suggestedMonth: SuggestedMonth
+  notificationMethod: NotificationMethod
+  empRefId: String
+  assignedMedicalCheckups: [AssignedMedicalCheckupMapInput]
+  assignedClinics: [AssignedClinicsListInput]
+  memos: [MemoListInput]
+}
+
+input ResetPasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
+type ResetPasswordResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap!
+  timestamp: String!
+}
+
+type ResponseDetails {
+  recordNumber: Int
+  errorDetails: [ErrorDetails]
+}
+
+enum ResultKey {
+  RESULT_ONE
+  RESULT_TWO
+  RESULT_THREE
+  RESULT_FOUR
+  RESULT_FIVE
+}
+
+type ResultSummary {
+  stressTestResultSummary: StressTestResultSummary
+  overWorkSummary: OverWorkSummary
+  healthCheckupSummary: HealthCheckupSummary
+}
+
+type ResultTemplate {
+  en: String
+  ja: String
+}
+
+input ResultTemplateInput {
+  en: String!
+  ja: String!
+}
+
+type Retirement {
+  createdDate: String
+  requestedByRefId: String
+  requestedByName: String
+}
+
+type RiskAverage {
+  workLoadRiskCurrent: Float
+  supportRiskCurrent: Float
+  workLoadRiskPrevious: Float
+  supportRiskPrevious: Float
+  overallRiskValueCurrent: Float
+  overallRiskValuePrevious: Float
+  overallRiskDifferencePercentage: Float
+}
+
+type RoomLocation {
+  building: String
+  roomNo: String
+}
+
+input RoomLocationInput {
+  building: String
+  roomNo: String
+}
+
+enum Section {
+  SECTION_ONE
+  SECTION_TWO
+  SECTION_THREE
+  SECTION_FOUR
+}
+
+type SectionAverages {
+  key: Section
+  value: Float
+}
+
+type SectionFactors {
+  key: Section
+  value: Int
+}
+
+enum Sections {
+  SECTION_ONE
+  SECTION_TWO
+  SECTION_THREE
+  SECTION_FOUR
+}
+
+type SectionTotalAverage {
+  key: Section
+  value: Float
+}
+
+enum SharingMethod {
+  HARD_COPY
+  SOFT_COPY_FREE
+  SOFT_COPY_PAID
+}
+
+type SingleApiResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: object
+}
+
+enum Status {
+  IN_OPERATION
+  RETIREMENT
+  LEAVE_OF_ABSENCE
+  MATERNITY_AND_CHILDCARE_LEAVE
+  MENTAL_DISORDER
+  DISEASE
+  SELF_CONVENIENCE
+  OTHER
+  DELETED
+}
+
+enum StatusCode {
+  S0000
+  E4000
+  E4001
+  E4003
+  E4004
+  E4005
+  E4009
+  E5000
+  E6000
+  E7000
+  E7001
+  E9000
+}
+
+enum StressLevel {
+  HIGH
+  LOW
+}
+
+type StressLevelTransition {
+  firstTransitionEmployeeCount: Int
+  secondTransitionEmployeeCount: Int
+}
+
+type StressTestCalculations {
+  isCreated: Boolean
+  refId: String
+  reason: String
+  created: StressTestResult
+}
+
+type StressTestCSVResponseHandler {
+  statusCode: String!
+  responseDetails: ResponseDetails
+  csvUploadHistoryRefId: String
+}
+
+type StressTestCSVUploadResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: StressTestResultUploadCSVResponse
+}
+
+type StressTestEmployeesSummary {
+  user: UserSummary
+  refId: String
+  employeeNo: String
+  companyCode: String
+  officeCode: String
+  departmentCode: String
+  divisionCode: String
+  joinedDate: String
+  employmentForm: EmployeementForm
+  notices: [Notice]
+  currentJudgement: CurrentJudgement
+  status: Status
+  insuranceNumber: String
+  designation: String
+  healthCheckupTypeFirstTime: HealthCheckupType
+  healthCheckupTypeSecondTime: HealthCheckupType
+}
+
+input StressTestInterview {
+  interviewRefId: String
+  isInterviewed: Boolean
+}
+
+type StressTestParticipation {
+  testTemplateCode: String
+  isTested: Boolean
+}
+
+type StressTestRateCounts {
+  code: String
+  totalCount: Int
+  generalCount: Int
+}
+
+type StressTestResult {
+  stressTestResultRefId: String
+  empRefId: String
+  companyCode: String
+  gender: Gender
+  submittedDate: String
+  testedDate: String
+  testTemplateCode: String
+  testTemplateName: String
+  answers: [AnswerList]
+  totalScore: Int
+  sectionTotalScoreMapForPersonalAnalysisFactors: [SectionFactors]
+  sectionTotalScoreMapForPopulationAnalysisFactors: [SectionFactors]
+  sectionTotalScoreMapForWorkplacePositivityFactors: [SectionFactors]
+  sectionTotalScoreMapForWorkBurdenAnalysisFactors: [SectionFactors]
+  sectionWiseAverageOfWorkplacePositivity: [SectionAverages]
+  sectionWiseAverageOfWorkBurdenAnalysis: [SectionAverages]
+  responseMessages: [Messages]
+  calculatedResult: [MessageGeneratingValues]
+  factorScoreValues: [FactorScores]
+  factorMappedScoreValues: [FactorScores]
+  stressLevel: StressLevel
+  isStressAbnormal: Boolean
+  isFollowupRecommended: Boolean
+  isShareable: Boolean
+  status: RecordStatus
+  memos: [Memos]
+}
+
+input StressTestResultCalculationInput {
+  empRefId: String!
+  companyCode: String
+  testTemplateCode: String!
+  testedDate: String
+  employeeAnswers: [QuestionAndAnswer!]
+}
+
+type StressTestResultCalculationResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [StressTestCalculations]
+}
+
+input StressTestResultDeleteInput {
+  empRefId: String
+  testTemplateCode: String
+  companyCode: String
+}
+
+type StressTestResultDeletion {
+  isDeleted: Boolean
+  refId: String
+  reason: String
+}
+
+type StressTestResultDeletionResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [StressTestResultDeletion]
+}
+
+type StressTestResultSummary {
+  companyParticipationRate: StressTestRateCounts
+  officeWiseParticipationRate: [StressTestRateCounts]
+  departmentWiseParticipationRate: [StressTestRateCounts]
+  companyHighStressRate: StressTestRateCounts
+  officeWiseHighStressRate: [StressTestRateCounts]
+  departmentWiseHighStressRate: [StressTestRateCounts]
+  highToLowTransitionForConsecutiveTwoRecords: StressLevelTransition
+  lowToHighTransitionForConsecutiveTwoRecords: StressLevelTransition
+  highStressTransitionForConsecutiveTwoRecords: StressLevelTransition
+  highStressTransitionForConsecutiveThreeRecords: StressLevelTransition
+  highStressTransitionForConsecutiveFourRecords: StressLevelTransition
+  stressTestYearWiseParticipationRate: [StressTestYearWiseRateCounts]
+  stressTestYearWiseHighStressRate: [StressTestYearWiseRateCounts]
+}
+
+input StressTestResultUpdateInput {
+  empRefId: String!
+  companyCode: String!
+  testTemplateCode: String!
+  isFollowupRecommended: Boolean
+  isShareable: Boolean
+  memo: MemoInput
+}
+
+type StressTestResultUpdateResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: StressTestResult
+}
+
+type StressTestResultUploadCSVResponse {
+  stressTestCSVUploadResponse: [StressTestCSVResponseHandler]
+  csvUploadHistoryRefId: String
+}
+
+type StressTestTemplate {
+  name: String
+  companyCode: String
+  startDate: String
+  endDate: String
+  questionCategory: QuestionCategory
+  code: String
+  testTemplateRefId: String
+  activeEmployeeCount: Int
+}
+
+input StressTestTemplateCreateInput {
+  name: String!
+  companyRefId: String!
+  code: String!
+  startDate: String!
+  endDate: String!
+  questionCategory: QuestionCategory!
+}
+
+type StressTestTemplateCreationResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [TemplateCreation]
+}
+
+input StressTestTemplateDeleteInputs {
+  refId: String
+  code: String
+}
+
+type StressTestTemplateDeleteResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [TemplateDeletion]
+}
+
+type StressTestTemplateResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: StressTestTemplate
+}
+
+input StressTestTemplateUpdateInput {
+  companyCode: String!
+  code: String!
+  endDate: String!
+}
+
+type StressTestYearWiseRateCounts {
+  year: String
+  yearWiseParticipation: StressTestRateCounts
+}
+
+type StringApiResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap!
+  timestamp: String!
+  payload: String
+}
+
+type SubCategory {
+  code: SubCategoryType
+  displayName: DisplayName
+}
+
+enum SubCategoryType {
+  SUB_CATEGORY_ONE
+  SUB_CATEGORY_TWO
+  SUB_CATEGORY_THREE
+  SUB_CATEGORY_FOUR
+  SUB_CATEGORY_FIVE
+  SUB_CATEGORY_SIX
+  SUB_CATEGORY_SEVEN
+  SUB_CATEGORY_EIGHT
+}
+
+enum SuggestedMonth {
+  JANUARY
+  FEBRUARY
+  MARCH
+  APRIL
+  MAY
+  JUNE
+  JULY
+  AUGUST
+  SEPTEMBER
+  OCTOBER
+  NOVEMBER
+  DECEMBER
+}
+
+input SummaryInput {
+  summaryType: SummaryType
+  companyCode: String
+}
+
+type SummaryResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+  payload: ResultSummary
+}
+
+enum SummaryType {
+  STRESS_TEST
+  OVERWORK
+  MEDICAL_CHECKUP
+}
+
+type SupportedHealthCheckupType {
+  type: CheckupCode
+  businessDays: [BusinessDays]
+  timeOfDay: TimeOfDay
+}
+
+input SupportedHealthCheckupTypeInput {
+  type: CheckupCode
+  businessDays: [BusinessDays]
+  timeOfDay: TimeOfDay
+}
+
+input SupportedHealthCheckupTypeInputOptional {
+  name: String
+  targetGenders: [Gender]
+  paymentMethod: PaymentMethod
+  amount: Int
+}
+
+type SupportedHealthCheckupTypeOptional {
+  name: String
+  targetGenders: [Gender]
+  paymentMethod: PaymentMethod
+  amount: Int
+}
+
+type TelephoneNumber {
+  number: String
+  type: TelephoneNumberType
+  isPrimary: Boolean
+}
+
+input TelephoneNumberInput {
+  number: String
+  type: TelephoneNumberType
+  isPrimary: Boolean
+}
+
+enum TelephoneNumberType {
+  MOBILE
+  RESIDENCE
+  COMPANY
+  OTHER
+}
+
+type TemplateCreation {
+  isCreated: Boolean
+  refId: String
+  reason: String
+  created: StressTestTemplate
+}
+
+type TemplateDeletion {
+  isDeleted: Boolean
+  refId: String
+  reason: String
+}
+
+type TestItemCategoryDTO {
+  id: String
+  createdDate: String
+  lastModifiedDate: String
+  createdBy: String
+  lastModifiedBy: String
+  categoryId: String
+  categoryCode: String
+  parentCategoryCode: String
+  displayName: DisplayName
+}
+
+input TestItemCategoryInput {
+  categoryCode: String!
+  parentCategoryCode: String!
+  displayName: DisplayNameInput!
+}
+
+type TestItemCategoryMultipleResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  payload: TestItemCategoryDTO
+}
+
+type TestItemCategoryRecordCreationResponse {
+  isCreated: Boolean!
+  refId: String!
+  reason: String
+  created: TestItemCategoryDTO
+}
+
+type TestItemCategoryRecordDeletionResponse {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+type TestItemMasterDTO {
+  createdDate: String
+  lastModifiedDate: String
+  createdBy: String
+  lastModifiedBy: String
+  code: String!
+  categoryCode: String
+  categoryDisplayName: DisplayName
+  externalTag: String
+  global: Boolean
+  allowedClientCodes: [String]
+  displayName: DisplayNameResponse
+  description: DisplayName
+  uom: String
+  ranges: [RangeResponse]
+  includedFor: IncludedForResponse
+  displayType: String
+  criticalLevels: [String]
+  composite: Boolean
+  composition: CompositionResponse
+  itemInfo: ItemInfoResponse
+  status: TestItemMasterStatus
+  type: TestItemMasterType
+}
+
+input TestItemMasterInput {
+  code: String
+  categoryCode: String
+  global: Boolean
+  allowedClientCodes: [String]
+  displayName: DisplayNameRequest
+  description: DisplayNameInput
+  uom: String
+  ranges: [RangeInput]
+  includedFor: IncludedForInput
+  displayType: String
+  criticalLevels: [String]
+  composite: Boolean
+  composition: CompositionInput
+  itemInfo: ItemInfoInput
+  status: TestItemMasterStatus
+  type: TestItemMasterType
+}
+
+type TestItemMasterMultipleResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  payload: [TestItemMasterDTO]
+}
+
+type TestItemMasterRecordCreationResponse {
+  isCreated: Boolean!
+  refId: String!
+  reason: String
+  created: TestItemMasterDTO
+}
+
+type TestItemMasterRecordDeletionResponse {
+  isDeleted: Boolean!
+  refId: String!
+  reason: String
+}
+
+type TestItemMasterSingleResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  payload: TestItemMasterDTO
+}
+
+enum TestItemMasterStatus {
+  PENDING
+  ACTIVE
+  BLOCKED
+  DELETED
+}
+
+enum TestItemMasterType {
+  NUMERICAL
+  BOOLEAN
+  STRING
+  DATE
+}
+
+input TestItemMasterUpdateInput {
+  code: String
+  categoryCode: String
+  externalTag: String
+  global: Boolean
+  allowedClientCodes: [String]
+  displayName: DisplayNameRequest
+  description: DisplayNameInput
+  uom: String
+  ranges: [RangeInput]
+  includedFor: IncludedForInput
+  displayType: String
+  criticalLevels: [String]
+  composite: Boolean
+  composition: CompositionInput
+  itemInfo: ItemInfoInput
+  status: TestItemMasterStatus
+  type: TestItemMasterType
+}
+
+enum TimeOfDay {
+  AM
+  PM
+}
+
+enum TimeOfTheDay {
+  NIGHT
+  DAY
+}
+
+type TranslationMap {
+  en: String
+  ja: String
+}
+
+type updateAnnualPlanResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: AnnualPlan
+}
+
+type UpdateBulkTestItemMasterResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: [TestItemMasterDTO]
+}
+
+type UpdateCheckupMasterResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: AddCheckupMasterDto
+}
+
+type UpdateCompanyInput {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: Company
+}
+
+type UpdateCSVHistoryResponse {
+  statusCode: String!
+  message: String!
+  timestamp: String!
+}
+
+type UpdateMeetingMinutesInput {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: MeetingMinutes
+}
+
+input UpdateTestItemCategoryInput {
+  parentCategoryCode: String!
+  displayName: DisplayNameInput!
+}
+
+type UpdateTestItemCategoryResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: TestItemCategoryDTO
+}
+
+type UpdateTestItemMasterResponse {
+  statusCode: String!
+  message: String
+  timestamp: String
+  payload: TestItemMasterDTO
+}
+
+type UpdateUserPreferenceResponse {
+  message: String!
+  timestamp: String!
+  statusCode: String!
+  translationMap: TranslationMap
+  payload: UserPreferenceResponse
+}
+
+type UpdateUserResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: Users
+}
+
+enum UploadStatus {
+  PROGRESSING
+  COMPLETED
+  FAILED
+}
+
+type User {
+  refId: String
+  id: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: String
+  telephoneNumbers: [TelephoneNumber]
+  addressList: [Address]
+  mailAddress: String
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [EmploymentSection]
+  userGroups: [String]
+}
+
+type UserDTO {
+  refId: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: String
+  telephoneNumbers: [TelephoneNumber]
+  addressList: [Address]
+  mailAddress: String
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [EmploymentSection]
+}
+
+type UserFilterResponse {
+  statusCode: StatusCode
+  message: String
+  timestamp: String
+  translationMap: TranslationMap!
+  payload: [Users]
+  totalElements: Int
+}
+
+type UserGroup {
+  refId: String
+  name: String
+  permissions: [String]
+  status: String
+}
+
+type UserGroupFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [UserGroup]
+  totalElements: Int
+}
+
+input UserGroupInput {
+  name: String!
+  permissions: [String]!
+}
+
+type UserGroupMultipleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [UserGroup]
+}
+
+type UserGroupSingleResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: UserGroup
+}
+
+enum UserGroupStatus {
+  ACTIVE
+  DELETED
+}
+
+input UserGroupUpdateInput {
+  name: String
+  permissions: [String]
+  status: UserGroupStatus
+}
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender!
+  dob: String!
+  emailAddress: String!
+  telephoneNumbers: [TelephoneNumberInput]
+  addressList: [AddressInput]
+  fileUploads: [FileMetaDataInput]
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [EmployeeSectionInput]
+  status: userStatus!
+  userPreferences: [UserPreferenceInput]
+  userGroups: [String]
+  password: String
+}
+
+type UserPreference {
+  name: String
+  type: UserPreferenceType
+  content: String
+}
+
+input UserPreferenceDeleteInput {
+  preferenceRefIds: [String]!
+}
+
+type UserPreferenceFilterResponse {
+  statusCode: String!
+  message: String!
+  translationMap: TranslationMap
+  timestamp: String!
+  payload: [UserPreferenceResponse]
+}
+
+input UserPreferenceInput {
+  name: String
+  type: UserPreferenceType!
+  content: String!
+}
+
+type UserPreferenceResponse {
+  userRefId: String
+  userPreferences: [UserPreference]
+}
+
+enum UserPreferenceType {
+  HEALTH_CHECK_FILTER
+}
+
+input UserPreferenceUpdateInput {
+  refId: String!
+  name: String
+  content: String
+}
+
+type Users {
+  refId: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: String
+  emailAddress: String
+  telephoneNumbers: [TelephoneNumber]
+  addressList: [Address]
+  fileUploads: [FileMetaData]
+  isOthersStressCheckResultsVisible: Boolean
+  allowedOffices: [EmployeeSection]
+  status: userStatus
+  userPreferences: [UserPreference]
+  userGroups: [String]
+}
+
+enum userStatus {
+  ACTIVE
+  DELETED
+}
+
+type UserSummary {
+  refId: String
+  firstName: String
+  lastName: String
+  firstNameKana: String
+  lastNameKana: String
+  gender: Gender
+  dob: String
+  telephoneNumbers: [TelephoneNumber]
+  addressList: [Address]
+  mailAddress: String
+  status: RecordStatus
+}
+
+type YearlyOverWorkSummary {
+  year: String
+  overWorkRiskCount: Int
+  totalEmployeeCount: Int
+}
+

@@ -1,0 +1,56 @@
+import type { CodegenConfig } from '@graphql-codegen/cli'
+
+const config: CodegenConfig = {
+  schema: 'https://logsiru-dev.practechs.com/api-dev/graphql',
+  documents: './lib/graphql/**/*.ts',
+  generates: {
+    './lib/graphql/generated.ts': {
+      plugins: ['typescript']
+    }
+  }
+}
+export default config
+
+
+import type { CodegenConfig } from '@graphql-codegen/cli';
+
+
+const config: CodegenConfig = {
+  overwrite: true,
+  schema: 'https://logsiru-dev.practechs.com/api-dev/graphql',
+  documents: './lib/graphql/**/!(*.generated).{ts,tsx}',
+  ignoreNoDocuments: true,
+  generates: {
+    'lib/graphql/types.ts': {
+      plugins: ['typescript'],
+      config: {
+        namingConvention: {
+          enumValues: 'change-case-all#upperCase',
+        }
+      }
+    },
+    'lib/': {
+     // preset: 'near-operation-file',
+      presetConfig: { extension: '.generated.ts', baseTypesPath: 'graphql/types.ts' },
+      plugins: ['typescript'],
+      config: { withHooks: true },
+    },
+  },
+};
+
+export default config;
+
+
+import type { CodegenConfig } from '@graphql-codegen/cli'
+
+const config: CodegenConfig = {
+  schema: 'https://logsiru-dev.practechs.com/api-dev/graphql',
+  generates: {
+    './lib/graphql/app_models.dart': {
+      plugins: {
+        'flutter-freezed': {}
+      }
+    }
+  }
+}
+export default config
