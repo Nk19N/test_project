@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>your-group-id</groupId>
+  <artifactId>your-artifact-id</artifactId>
+  <version>your-version</version>
+
+  <properties>
+    <sonar.organization>nk19n</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>648891e9b6aac3b74a1bcf452b572bead144777c</sonar.projectKey>
+  </properties>
+
+  <!-- ... rest of the POM configuration ... -->
+
+</project>
